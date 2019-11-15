@@ -14,10 +14,10 @@ pip install scrapy
 "{queryWordindex},{queryWord},{word},{pages}"，分别表示查询词id，查询词，关键词，查询页数(百度图片当前每页默认30个图片，这个页数*30基本上就是最后会下载的图片数量)
 例如: "1,大雁塔,大雁塔,30"
 
-运行爬虫，将输出保存到query.json
+进入爬虫项目文档./BaiduImages/BaiduImages运行爬虫，将输出保存到query.json
 
 ``` sh
-scrapy crawler -o query.json
+scrapy crawl -o query.json
 ```
 
 将图片移动到相应文件夹
