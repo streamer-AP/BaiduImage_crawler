@@ -69,6 +69,7 @@ ITEM_PIPELINES = {
 }
 IMAGES_STORE="images"
 QUERY_LIST_FILE_PATH="query_list.txt"
+OUTPUT_FILE_PATH="query.json"
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
