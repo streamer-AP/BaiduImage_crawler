@@ -17,7 +17,7 @@ pip install scrapy
 进入爬虫项目文档./BaiduImages/BaiduImages运行爬虫，将输出保存到query.json
 
 ``` sh
-scrapy crawl -o query.json
+scrapy crawl -o query.json images
 ```
 
 将图片移动到相应文件夹

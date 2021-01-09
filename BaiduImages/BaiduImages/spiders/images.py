@@ -25,7 +25,6 @@ class ImagesSpider(Spider):
 
     def start_requests(self):
         data = {'queryWord': '', 'word': '','max_page':30}
-        base_url = 'https://image.baidu.com/search/acjson?tn=resultjson_com&ipn=rj&ct=201326592&is=&fp=result&queryWord='
         with open(self.settings.get("QUERY_LIST_FILE_PATH"),"r") as query_file:
             lines=query_file.readlines()
             for line in lines:
@@ -38,11 +37,11 @@ class ImagesSpider(Spider):
                     self.word=data["word"]
                     if not os.path.exists(os.path.join(self.settings.get("IMAGES_STORE"),data["word"])):
                         os.mkdir(os.path.join(self.settings.get("IMAGES_STORE"),data["word"]))
+
                     for page in range(1, data["max_page"] + 1):
                         data['pn'] = page * 30
-                        url = base_url + quote(data['queryWord']) + '&cl=2&lm=-1&ie=utf-8&oe=utf-8&adpicid=&st=-1&z=&ic=0&word=' + \
-                            quote(data['word']) + '&s=&se=&tab=&width=&height=&face=0&istype=2&qc=&nc=1&fr=&expermode=&pn=' + \
-                            quote(str(data['pn'])) + '&rn=30&gsm=' + str(hex(data['pn']))
+                        url =f"https://image.baidu.com/search/acjson?tn=resultjson_com&ipn=rj&word={quote(data['queryWord'])}&pn={page*30}"
+                        print(url)
                         request=Request(url,callback=self.parse)
                         request.cb_kwargs["queryWordindex"]=data["queryWordindex"]
                         time.sleep(0.1)
