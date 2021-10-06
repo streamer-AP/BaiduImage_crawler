@@ -3,4 +3,4 @@ numpy==1.17.4
 parsel==1.5.2
 Pillow==6.2.1
 pyparsing==2.4.5
-Scrapy==1.8.0
+Scrapy==1.8.1
